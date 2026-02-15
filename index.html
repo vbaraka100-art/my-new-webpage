@@ -3,38 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="image.css"
+    <title>Photo Challenge</title>
+    <link rel="stylesheet" href="image.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: antiquewhite; font-family: Arial, Helvetica, sans-serif; padding: 1rem; }
+        h1 { color: blueviolet; font-family: cursive; }
+        .page { display: none; }
+        .page.active { display: block; }
+        .pagination { display:flex; gap:.5rem; align-items:center; justify-content:center; margin:1rem 0; }
+        .pagination button { padding:.4rem .8rem; border-radius:4px; border:1px solid #999; background:#fff; cursor:pointer }
+        .pagination button[disabled] { opacity:.5; cursor:default }
+        .page img.responsive { max-width:100%; height:auto; display:block; margin: .5rem 0 }
+        .video { max-width:100%; height:auto; display:block; margin:.5rem 0 }
+        figure { margin: .5rem 0 }
+        figcaption { font-style: italic }
+    </style>
 </head>
-<body style="background-color: antiquewhite;"> <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-   <h1 style="color: blueviolet;font-family: cursive;" >PHOTO CHALLENGE</h1>
-   <h2 style="color: chocolate;">How it began</h2> 
-   <p>I was walking past Simon City when a thought crossed my mind,"What if we test and see whose phone has the best camera quality?" I then posed the question on the group, at first there was no response but later it turned out to be a nice activity.</p><hr>
-   <h3 style="color: rgb(54, 133, 77);">Victor</h3><p>He began with photos from Muroki hill but you'll excuse his phone's camera, don;t laugh</p><figure><img width="500" height="500" src="WhatsApp Image 2026-02-15 at 12.49.01.jpeg"alt="My photo" <figcaption>Muroki Hills</figcaption></figure><br>
-   <p>He then found himself at Sikinwa, and recorded a river flowing with kids herding cows near</p>
-   <video  class="video" controls><source src="WhatsApp Video 2026-02-15 at 11.43.17.mp4" type="video/mp4">Your broser does not support this video format</video>
-   <p>Then he reached a place, so high that when you are walking you feel as if the depression is pulling you.</p><figure><img src="WhatsApp Image 2026-02-15 at 17.54.54.jpeg" class="responsive"</figure>
-   <p>It was quite a day for him, a captivating yet tiring day</p>class="responsive"<hr>
-   <h3 style="color: rgb(61, 109, 54);">Jacobo Junior</h3>
-   <p>A hardworking youmg man, ambitious in every field, moreso kushinda Vicky steps. But today he has cooked sth nice for us. Let me show them below</p>
-   <img src="WhatsApp Image 2026-02-15 at 16.06.18.jpeg" class="responsive" alt="my pics"><br>
-   <img src="WhatsApp Image 2026-02-15 at 16.06.21.jpeg" class="responsive" alt="my pics"><br>
-   <img src="WhatsApp Image 2026-02-15 at 16.07.42 (1).jpeg" class="responsive" alt="my pics"><br>
-   <img src="WhatsApp Image 2026-02-15 at 16.07.42.jpeg" class="responsive" alt="my pics"><br>
-   <img src="WhatsApp Image 2026-02-15 at 18.32.14.jpeg" class="responsive" alt="my pics"><br>
-   <img src="WhatsApp Image 2026-02-15 at 18.32.17 (1).jpeg" class="responsive" alt="my pics"><br>
-   <img src="WhatsApp Image 2026-02-15 at 18.32.18.jpeg" class="responsive" alt="my pics"><br>
-   <img src="WhatsApp Image 2026-02-15 at 18.32.19 (1).jpeg" class="responsive" alt="my pics"><br>
-<p>That sums up Junior's photography and he might end up winning this competition</p>
-<h3 style="color: rgb(71, 156, 93);">Philipo</h3>
-<p>Known for his creativity and use of a good camera app,Gcam, he has truly not dissapointed again, let's see:</p><br>
-<video class="video" controls><source src="WhatsApp Video 2026-02-15 at 18.22.32.mp4" type="video/mp4">Your browser is fake</video><hr>
-  <img src="WhatsApp Image 2026-02-15 at 17.22.36.jpeg" class="responsive" alt="my pics"><br>
-  <img src="WhatsApp Image 2026-02-15 at 17.23.30.jpeg" class="responsive" alt="my pics"><br>
-  <img src="WhatsApp Image 2026-02-15 at 17.28.41.jpeg" class="responsive" alt="my pics"><br>
-  <img src="WhatsApp Image 2026-02-15 at 17.29.11.jpeg" class="responsive" alt="my pics"><br>
+<body>
+   <h1>PHOTO CHALLENGE</h1>
 
+   <!-- Pagination controls (JS will populate the current page / total pages) -->
+   <div class="pagination" aria-label="Pagination controls">
+     <button id="prevBtn">Previous</button>
+     <div id="pageIndicators" aria-live="polite"></div>
+     <button id="nextBtn">Next</button>
+   </div>
 
+   <!-- Page 1: How it began -->
+   <section class="page" data-page-index="1" id="page-1">
+     <h2 style="color: chocolate;">How it began</h2>
+     <p>I was walking past Simon City when a thought crossed my mind, "What if we test and see whose phone has the best camera quality?" I then posed the question on the group; at first there was no response but later it turned out to be a nice activity.</p>
+     <hr>
+     <h3 style="color: rgb(54, 133, 77);">Victor</h3>
+     <p>He began with photos from Muroki hill but you'll excuse his phone's camera, don't laugh.</p>
+     <figure>
+       <img width="500" height="500" src="WhatsApp Image 2026-02-15 at 12.49.01.jpeg" alt="Muroki Hills">
+       <figcaption>Muroki Hills</figcaption>
+     </figure>
+     <p>He then found himself at Sikinwa, and recorded a river flowing with kids herding cows nearby.</p>
+     <video class="video" controls>
+       <source src="WhatsApp Video 2026-02-15 at 11.43.17.mp4" type="video/mp4">
+       Your browser does not support this video format.
+     </video>
+     <p>Then he reached a place so high that when you are walking you feel as if the depression is pulling you.</p>
+     <figure>
+       <img src="WhatsApp Image 2026-02-15 at 17.54.54.jpeg" class="responsive" alt="Hill view">
+     </figure>
+     <p>It was quite a day for him, a captivating yet tiring day.</p>
+   </section>
 
+   <!-- Page 2: Jacobo Junior -->
+   <section class="page" data-page-index="2" id="page-2">
+     <h2 style="color: rgb(61, 109, 54);">Jacobo Junior</h2>
+     <p>A hardworking young man, ambitious in every field. Today he has cooked something nice for us. Let me show them below.</p>
+     <img src="WhatsApp Image 2026-02-15 at 16.06.18.jpeg" class="responsive" alt="Junior 1">
+     <img src="WhatsApp Image 2026-02-15 at 16.06.21.jpeg" class="responsive" alt="Junior 2">
+     <img src="WhatsApp Image 2026-02-15 at 16.07.42 (1).jpeg" class="responsive" alt="Junior 3">
+     <img src="WhatsApp Image 2026-02-15 at 16.07.42.jpeg" class="responsive" alt="Junior 4">
+     <img src="WhatsApp Image 2026-02-15 at 18.32.14.jpeg" class="responsive" alt="Junior 5">
+     <img src="WhatsApp Image 2026-02-15 at 18.32.17 (1).jpeg" class="responsive" alt="Junior 6">
+     <img src="WhatsApp Image 2026-02-15 at 18.32.18.jpeg" class="responsive" alt="Junior 7">
+     <img src="WhatsApp Image 2026-02-15 at 18.32.19 (1).jpeg" class="responsive" alt="Junior 8">
+     <p>That sums up Junior's photography and he might end up winning this competition.</p>
+   </section>
+
+   <!-- Page 3: Philipo -->
+   <section class="page" data-page-index="3" id="page-3">
+     <h2 style="color: rgb(71, 156, 93);">Philipo</h2>
+     <p>Known for his creativity and use of a good camera app (GCam), he has truly not disappointed; let's see:</p>
+     <video class="video" controls>
+       <source src="WhatsApp Video 2026-02-15 at 18.22.32.mp4" type="video/mp4">
+       Your browser does not support this video format.
+     </video>
+     <hr>
+     <img src="WhatsApp Image 2026-02-15 at 17.22.36.jpeg" class="responsive" alt="Philipo 1">
+     <img src="WhatsApp Image 2026-02-15 at 17.23.30.jpeg" class="responsive" alt="Philipo 2">
+     <img src="WhatsApp Image 2026-02-15 at 17.28.41.jpeg" class="responsive" alt="Philipo 3">
+     <img src="WhatsApp Image 2026-02-15 at 17.29.11.jpeg" class="responsive" alt="Philipo 4">
+   </section>
+
+   <script>
+     (function(){
+       const pages = Array.from(document.querySelectorAll('.page'));
+       const prevBtn = document.getElementById('prevBtn');
+       const nextBtn = document.getElementById('nextBtn');
+       const pageIndicators = document.getElementById('pageIndicators');
+       let current = 0;
+
+       function renderIndicators() {
+         pageIndicators.textContent = `Page ${current+1} of ${pages.length}`;
+       }
+
+       function showPage(index) {
+         if (index < 0 || index >= pages.length) return;
+         pages.forEach((p, i) => p.classList.toggle('active', i === index));
+         current = index;
+         prevBtn.disabled = current === 0;
+         nextBtn.disabled = current === pages.length - 1;
+         renderIndicators();
+         // update hash for direct linking
+         history.replaceState(null, '', `#page-${current+1}`);
+       }
+
+       prevBtn.addEventListener('click', () => showPage(current - 1));
+       nextBtn.addEventListener('click', () => showPage(current + 1));
+
+       // Allow left/right arrow navigation
+       window.addEventListener('keydown', (e) => {
+         if (e.key === 'ArrowLeft') showPage(current - 1);
+         if (e.key === 'ArrowRight') showPage(current + 1);
+       });
+
+       // Initialize: if URL has hash like #page-2, open that page
+       const hash = (location.hash || '').replace('#page-','');
+       const startIndex = hash ? Math.max(0, Math.min(pages.length-1, Number(hash)-1)) : 0;
+       showPage(startIndex);
+     })();
+   </script>
 </body>
 </html>
