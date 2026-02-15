@@ -1,0 +1,18 @@
+.responsive {
+    width: 100%;       /* fills container width */
+    max-width: 500px;  /* prevents image from getting too big */
+    height: auto;      /* keeps aspect ratio */
+
+  .responsive-video {
+    width: 100%;      /* video fills container width */
+    max-width: 640px; /* optional limit on large screens */
+    height: auto;     /* keeps aspect ratio */
+    display: block;   /* removes unwanted inline spacing */
+    margin: 0 auto;   /* centers video horizontally */
+    border-radius: 10px; /* optional rounded corners */
+}  
+.video {
+    width: 100%;
+    max-width: 720px;
+    height: auto;
+}
